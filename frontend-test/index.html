@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ClimaGo - Prueba</title>
+</head>
+
+<body>
+
+    <h1>ClimaGo</h1>
+    <h2>Iniciar sesión</h2>
+
+    <form id="loginForm">
+        <input
+            type="email"
+            id="email"
+            placeholder="Correo electrónico"
+            required
+        >
+
+        <br><br>
+
+        <input
+            type="password"
+            id="password"
+            placeholder="Contraseña"
+            required
+        >
+
+        <br><br>
+
+        <button type="submit">Iniciar sesión</button>
+    </form>
+
+    <p id="mensaje"></p>
+
+    <script>
+        const API_URL = 'http://127.0.0.1:8000/api';
+
+        document.getElementById('loginForm').addEventListener('submit', async function(event) {
+            event.preventDefault();
+
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+            const mensaje = document.getElementById('mensaje');
+
+            try {
+                const response = await fetch(`${API_URL}/login`, {
+                    method: 'POST',
+                    headers: {
+                        'Accept': 'application/json',
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        email: email,
+                        password: password
+                    })
+                });
+
+                const data = await response.json();
+
+                if (response.ok) {
+                    localStorage.setItem('token', data.token);
+
+                    mensaje.textContent = 'Inicio de sesión correcto';
+
+                    console.log('Usuario:', data.user);
+                    console.log('Token guardado correctamente');
+                } else {
+                    mensaje.textContent = data.message || 'Error al iniciar sesión';
+                }
+
+            } catch (error) {
+                console.error(error);
+                mensaje.textContent = 'No se pudo conectar con la API';
+            }
+        });
+    </script>
+
+</body>
+</html>
