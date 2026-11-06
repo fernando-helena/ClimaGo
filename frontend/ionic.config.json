@@ -1,0 +1,7 @@
+{
+  "name": "clima-go",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}

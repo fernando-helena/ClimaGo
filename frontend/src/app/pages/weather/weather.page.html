@@ -1,0 +1,32 @@
+<ion-header><ion-toolbar color="primary"><ion-title>ClimaGo</ion-title></ion-toolbar></ion-header>
+<ion-content class="ion-padding">
+  <form (ngSubmit)="search()">
+    <ion-searchbar [(ngModel)]="city" name="city" placeholder="Ej. San Salvador, El Salvador" [debounce]="0"></ion-searchbar>
+    <ion-button expand="block" type="submit" [disabled]="loading">{{ loading ? 'Consultando...' : 'Consultar clima' }}</ion-button>
+  </form>
+  <ion-text color="danger" *ngIf="error"><p>{{ error }}</p></ion-text>
+  <ion-text color="success" *ngIf="message"><p>{{ message }}</p></ion-text>
+
+  <ng-container *ngIf="weather?.location as location">
+    <ion-card *ngIf="weather.current as current" class="weather-card">
+      <ion-card-header>
+        <ion-card-title>{{ location.name }}, {{ location.country }}</ion-card-title>
+        <ion-card-subtitle>{{ location.localtime }}</ion-card-subtitle>
+      </ion-card-header>
+      <ion-card-content>
+        <div class="main-weather">
+          <img *ngIf="current.condition as condition" [src]="'https:' + condition.icon" [alt]="condition.text || 'Estado del clima'">
+          <strong>{{ current.temp_c }} °C</strong>
+        </div>
+        <p *ngIf="current.condition as condition">{{ condition.text }}</p>
+        <ion-list lines="none">
+          <ion-item><ion-label>Sensación térmica</ion-label><ion-note slot="end">{{ current.feelslike_c }} °C</ion-note></ion-item>
+          <ion-item><ion-label>Humedad</ion-label><ion-note slot="end">{{ current.humidity }} %</ion-note></ion-item>
+          <ion-item><ion-label>Viento</ion-label><ion-note slot="end">{{ current.wind_kph }} km/h</ion-note></ion-item>
+        </ion-list>
+        <ion-button expand="block" fill="outline" (click)="addFavorite()" [disabled]="savingFavorite">{{ savingFavorite ? 'Guardando...' : 'Agregar a favoritos' }}</ion-button>
+      </ion-card-content>
+    </ion-card>
+  </ng-container>
+  <div class="empty" *ngIf="!weather && !loading"><ion-icon name="search-outline"></ion-icon><p>Busca una ciudad para ver el clima actual.</p></div>
+</ion-content>

@@ -1,0 +1,12 @@
+<ion-header><ion-toolbar color="primary"><ion-title>Historial</ion-title><ion-buttons slot="end"><ion-button (click)="load()"><ion-icon name="refresh-outline"></ion-icon></ion-button></ion-buttons></ion-toolbar></ion-header>
+<ion-content>
+  <ion-list *ngIf="history.length">
+    <ion-item *ngFor="let item of history">
+      <ion-icon name="time-outline" slot="start"></ion-icon>
+      <ion-label><h2>{{ item.city }}, {{ item.country }}</h2><p>{{ item.searched_at | date:'medium' }}</p></ion-label>
+    </ion-item>
+  </ion-list>
+  <ion-text class="ion-padding" color="danger" *ngIf="error"><p>{{ error }}</p></ion-text>
+  <div class="empty ion-padding" *ngIf="!loading && !history.length && !error"><ion-icon name="time-outline"></ion-icon><p>Tus búsquedas aparecerán aquí.</p></div>
+  <div class="empty ion-padding" *ngIf="loading"><ion-spinner></ion-spinner><p>Cargando historial...</p></div>
+</ion-content>

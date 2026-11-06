@@ -1,0 +1,14 @@
+<ion-header><ion-toolbar color="primary"><ion-buttons slot="start"><ion-back-button defaultHref="/login"></ion-back-button></ion-buttons><ion-title>Crear cuenta</ion-title></ion-toolbar></ion-header>
+<ion-content class="ion-padding">
+  <p>Regístrate para guardar tus ciudades favoritas e historial de consultas.</p>
+  <form (ngSubmit)="submit()">
+    <ion-list lines="full">
+      <ion-item><ion-input label="Nombre" labelPlacement="stacked" [(ngModel)]="name" name="name" autocomplete="name" required></ion-input></ion-item>
+      <ion-item><ion-input label="Correo electrónico" labelPlacement="stacked" type="email" [(ngModel)]="email" name="email" autocomplete="email" required></ion-input></ion-item>
+      <ion-item><ion-input label="Contraseña" labelPlacement="stacked" type="password" [(ngModel)]="password" name="password" autocomplete="new-password" required></ion-input></ion-item>
+      <ion-item><ion-input label="Confirmar contraseña" labelPlacement="stacked" type="password" [(ngModel)]="passwordConfirmation" name="passwordConfirmation" autocomplete="new-password" required></ion-input></ion-item>
+    </ion-list>
+    <ion-text color="danger" *ngIf="error"><p>{{ error }}</p></ion-text>
+    <ion-button expand="block" type="submit" [disabled]="loading">{{ loading ? 'Creando...' : 'Registrarme' }}</ion-button>
+  </form>
+</ion-content>

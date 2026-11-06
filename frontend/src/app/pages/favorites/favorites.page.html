@@ -1,0 +1,13 @@
+<ion-header><ion-toolbar color="primary"><ion-title>Ciudades favoritas</ion-title><ion-buttons slot="end"><ion-button (click)="load()"><ion-icon name="refresh-outline"></ion-icon></ion-button></ion-buttons></ion-toolbar></ion-header>
+<ion-content>
+  <ion-list *ngIf="favorites.length">
+    <ion-item *ngFor="let favorite of favorites">
+      <ion-icon name="location-outline" slot="start"></ion-icon>
+      <ion-label><h2>{{ favorite.city }}</h2><p>{{ favorite.country || 'País no indicado' }}</p></ion-label>
+      <ion-button fill="clear" color="danger" slot="end" (click)="remove(favorite)" aria-label="Eliminar favorito"><ion-icon name="trash-outline"></ion-icon></ion-button>
+    </ion-item>
+  </ion-list>
+  <ion-text class="ion-padding" color="danger" *ngIf="error"><p>{{ error }}</p></ion-text>
+  <div class="empty ion-padding" *ngIf="!loading && !favorites.length && !error"><ion-icon name="heart-outline"></ion-icon><p>Aún no tienes ciudades favoritas.</p><ion-button routerLink="/tabs/clima">Buscar una ciudad</ion-button></div>
+  <div class="empty ion-padding" *ngIf="loading"><ion-spinner></ion-spinner><p>Cargando favoritos...</p></div>
+</ion-content>

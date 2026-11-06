@@ -1,0 +1,8 @@
+<ion-header><ion-toolbar color="primary"><ion-title>Mi cuenta</ion-title></ion-toolbar></ion-header>
+<ion-content class="ion-padding">
+  <ion-list inset="true">
+    <ion-item><ion-icon name="person-outline" slot="start"></ion-icon><ion-label><h2>{{ user?.name || 'Usuario' }}</h2><p>{{ user?.email || 'Cargando datos...' }}</p></ion-label></ion-item>
+  </ion-list>
+  <ion-text color="danger" *ngIf="error"><p>{{ error }}</p></ion-text>
+  <ion-button expand="block" color="danger" (click)="logout()"><ion-icon name="log-out-outline" slot="start"></ion-icon>Cerrar sesión</ion-button>
+</ion-content>
