@@ -1,14 +1,137 @@
-<ion-header><ion-toolbar color="primary"><ion-buttons slot="start"><ion-back-button defaultHref="/login"></ion-back-button></ion-buttons><ion-title>Crear cuenta</ion-title></ion-toolbar></ion-header>
-<ion-content class="ion-padding">
-  <p>Regístrate para guardar tus ciudades favoritas e historial de consultas.</p>
-  <form (ngSubmit)="submit()">
-    <ion-list lines="full">
-      <ion-item><ion-input label="Nombre" labelPlacement="stacked" [(ngModel)]="name" name="name" autocomplete="name" required></ion-input></ion-item>
-      <ion-item><ion-input label="Correo electrónico" labelPlacement="stacked" type="email" [(ngModel)]="email" name="email" autocomplete="email" required></ion-input></ion-item>
-      <ion-item><ion-input label="Contraseña" labelPlacement="stacked" type="password" [(ngModel)]="password" name="password" autocomplete="new-password" required></ion-input></ion-item>
-      <ion-item><ion-input label="Confirmar contraseña" labelPlacement="stacked" type="password" [(ngModel)]="passwordConfirmation" name="passwordConfirmation" autocomplete="new-password" required></ion-input></ion-item>
-    </ion-list>
-    <ion-text color="danger" *ngIf="error"><p>{{ error }}</p></ion-text>
-    <ion-button expand="block" type="submit" [disabled]="loading">{{ loading ? 'Creando...' : 'Registrarme' }}</ion-button>
-  </form>
+<ion-content [fullscreen]="true" class="register-content">
+  <div class="register-layout">
+
+    <!-- PANEL IZQUIERDO -->
+    <section class="brand-panel">
+      <div class="brand-logo">
+        <ion-icon name="partly-sunny"></ion-icon>
+        <span>ClimaGo</span>
+      </div>
+
+      <div class="brand-message">
+        <span class="eyebrow">ÚNETE A CLIMAGO</span>
+        <h1>Tu clima,<br>siempre contigo.</h1>
+        <p>
+          Crea tu cuenta y comienza a guardar tus ciudades favoritas,
+          consultar el clima y revisar tu historial.
+        </p>
+      </div>
+
+      <div class="brand-decoration">
+        <ion-icon name="cloudy-outline"></ion-icon>
+        <ion-icon name="sunny-outline"></ion-icon>
+        <ion-icon name="rainy-outline"></ion-icon>
+      </div>
+
+      <span class="brand-footer">ClimaGo · Tu compañero del clima</span>
+    </section>
+
+    <!-- PANEL DERECHO -->
+    <section class="form-panel">
+
+      <div class="mobile-logo">
+        <ion-icon name="partly-sunny"></ion-icon>
+        <span>ClimaGo</span>
+      </div>
+
+      <div class="form-container">
+        <div class="form-heading">
+          <span class="eyebrow">COMIENZA AHORA</span>
+          <h2>Crear cuenta</h2>
+          <p>Completa tus datos para registrarte.</p>
+        </div>
+
+        <form (ngSubmit)="submit()">
+
+          <div class="field-group">
+            <label for="name">Nombre completo</label>
+            <div class="input-wrapper">
+              <ion-icon name="person-outline"></ion-icon>
+              <ion-input
+                id="name"
+                type="text"
+                [(ngModel)]="name"
+                name="name"
+                autocomplete="name"
+                placeholder="Tu nombre"
+                required>
+              </ion-input>
+            </div>
+          </div>
+
+          <div class="field-group">
+            <label for="email">Correo electrónico</label>
+            <div class="input-wrapper">
+              <ion-icon name="mail-outline"></ion-icon>
+              <ion-input
+                id="email"
+                type="email"
+                [(ngModel)]="email"
+                name="email"
+                autocomplete="email"
+                placeholder="tu@correo.com"
+                required>
+              </ion-input>
+            </div>
+          </div>
+
+          <div class="field-group">
+            <label for="password">Contraseña</label>
+            <div class="input-wrapper">
+              <ion-icon name="lock-closed-outline"></ion-icon>
+              <ion-input
+                id="password"
+                type="password"
+                [(ngModel)]="password"
+                name="password"
+                autocomplete="new-password"
+                placeholder="Crea una contraseña"
+                required>
+              </ion-input>
+            </div>
+          </div>
+
+          <div class="field-group">
+            <label for="passwordConfirmation">Confirmar contraseña</label>
+            <div class="input-wrapper">
+              <ion-icon name="shield-checkmark-outline"></ion-icon>
+              <ion-input
+                id="passwordConfirmation"
+                type="password"
+                [(ngModel)]="passwordConfirmation"
+                name="passwordConfirmation"
+                autocomplete="new-password"
+                placeholder="Repite tu contraseña"
+                required>
+              </ion-input>
+            </div>
+          </div>
+
+          <ion-text color="danger" *ngIf="error">
+            <p class="error-message">{{ error }}</p>
+          </ion-text>
+
+          <ion-button
+            expand="block"
+            type="submit"
+            class="register-button"
+            [disabled]="loading">
+            {{ loading ? 'Creando...' : 'Crear mi cuenta' }}
+            <ion-icon name="arrow-forward-outline" slot="end"></ion-icon>
+          </ion-button>
+
+          <div class="login-link">
+            <span>¿Ya tienes una cuenta?</span>
+            <a routerLink="/login">Iniciar sesión</a>
+          </div>
+
+        </form>
+      </div>
+
+      <span class="form-footer">
+        ClimaGo · Información del clima en un solo lugar
+      </span>
+
+    </section>
+  </div>
 </ion-content>

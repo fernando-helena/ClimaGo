@@ -2,7 +2,12 @@ import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from '../../core/auth.service';
 
-@Component({ selector: 'app-register', templateUrl: './register.page.html', standalone: false })
+@Component({
+  selector: 'app-register',
+  templateUrl: './register.page.html',
+  styleUrls: ['./register.page.scss'],
+  standalone: false
+})
 export class RegisterPage {
   name = '';
   email = '';

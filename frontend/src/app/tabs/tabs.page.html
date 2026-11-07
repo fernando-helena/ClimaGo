@@ -1,25 +1,69 @@
-<ion-tabs>
+<div class="app-layout">
 
-  <ion-tab-bar slot="bottom">
-    <ion-tab-button tab="clima" href="/tabs/clima">
-      <ion-icon aria-hidden="true" name="partly-sunny-outline"></ion-icon>
-      <ion-label>Clima</ion-label>
-    </ion-tab-button>
+  <!-- Menú lateral -->
+  <aside class="sidebar">
 
-    <ion-tab-button tab="favoritos" href="/tabs/favoritos">
-      <ion-icon aria-hidden="true" name="heart-outline"></ion-icon>
-      <ion-label>Favoritos</ion-label>
-    </ion-tab-button>
+    <div class="sidebar-brand">
+      <div class="brand-icon">
+        <ion-icon name="partly-sunny-outline"></ion-icon>
+      </div>
 
-    <ion-tab-button tab="historial" href="/tabs/historial">
-      <ion-icon aria-hidden="true" name="time-outline"></ion-icon>
-      <ion-label>Historial</ion-label>
-    </ion-tab-button>
+      <span>Clima<span class="brand-highlight">Go</span></span>
+    </div>
 
-    <ion-tab-button tab="config" href="/tabs/config">
-      <ion-icon aria-hidden="true" name="person-outline"></ion-icon>
-      <ion-label>Cuenta</ion-label>
-    </ion-tab-button>
-  </ion-tab-bar>
+    <div class="sidebar-section">
 
-</ion-tabs>
+      <span class="sidebar-label">MENÚ PRINCIPAL</span>
+
+      <a routerLink="/tabs/clima"
+         routerLinkActive="active"
+         [routerLinkActiveOptions]="{ exact: true }"
+         class="sidebar-link">
+
+        <ion-icon name="partly-sunny-outline"></ion-icon>
+        <span>Clima</span>
+      </a>
+
+      <a routerLink="/tabs/favoritos"
+         routerLinkActive="active"
+         class="sidebar-link">
+
+        <ion-icon name="heart-outline"></ion-icon>
+        <span>Favoritos</span>
+      </a>
+
+      <a routerLink="/tabs/historial"
+         routerLinkActive="active"
+         class="sidebar-link">
+
+        <ion-icon name="time-outline"></ion-icon>
+        <span>Historial</span>
+      </a>
+
+      <a routerLink="/tabs/config"
+         routerLinkActive="active"
+         class="sidebar-link">
+
+        <ion-icon name="person-outline"></ion-icon>
+        <span>Mi cuenta</span>
+      </a>
+
+    </div>
+
+    <div class="sidebar-footer">
+      <ion-icon name="cloud-outline"></ion-icon>
+
+      <div>
+        <strong>ClimaGo</strong>
+        <span>Tu clima, siempre contigo</span>
+      </div>
+    </div>
+
+  </aside>
+
+  <!-- Contenido de las páginas -->
+  <main class="main-content">
+    <ion-router-outlet></ion-router-outlet>
+  </main>
+
+</div>

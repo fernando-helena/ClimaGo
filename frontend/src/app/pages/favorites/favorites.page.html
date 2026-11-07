@@ -1,13 +1,120 @@
-<ion-header><ion-toolbar color="primary"><ion-title>Ciudades favoritas</ion-title><ion-buttons slot="end"><ion-button (click)="load()"><ion-icon name="refresh-outline"></ion-icon></ion-button></ion-buttons></ion-toolbar></ion-header>
-<ion-content>
-  <ion-list *ngIf="favorites.length">
-    <ion-item *ngFor="let favorite of favorites">
-      <ion-icon name="location-outline" slot="start"></ion-icon>
-      <ion-label><h2>{{ favorite.city }}</h2><p>{{ favorite.country || 'País no indicado' }}</p></ion-label>
-      <ion-button fill="clear" color="danger" slot="end" (click)="remove(favorite)" aria-label="Eliminar favorito"><ion-icon name="trash-outline"></ion-icon></ion-button>
-    </ion-item>
-  </ion-list>
-  <ion-text class="ion-padding" color="danger" *ngIf="error"><p>{{ error }}</p></ion-text>
-  <div class="empty ion-padding" *ngIf="!loading && !favorites.length && !error"><ion-icon name="heart-outline"></ion-icon><p>Aún no tienes ciudades favoritas.</p><ion-button routerLink="/tabs/clima">Buscar una ciudad</ion-button></div>
-  <div class="empty ion-padding" *ngIf="loading"><ion-spinner></ion-spinner><p>Cargando favoritos...</p></div>
+<ion-content [fullscreen]="true" class="favorites-content">
+
+  <div class="favorites-container">
+
+    <!-- ENCABEZADO -->
+    <header class="favorites-header">
+      <div class="favorites-brand">
+        <ion-icon name="partly-sunny"></ion-icon>
+        <span>ClimaGo</span>
+      </div>
+
+      <ion-button
+        fill="clear"
+        class="refresh-button"
+        (click)="load()"
+        [disabled]="loading">
+        <ion-icon name="refresh-outline"></ion-icon>
+      </ion-button>
+    </header>
+
+    <!-- PRESENTACIÓN -->
+    <section class="favorites-intro">
+      <span class="section-eyebrow">TUS LUGARES GUARDADOS</span>
+      <h1>Ciudades favoritas</h1>
+      <p>Ten siempre a mano las ciudades cuyo clima quieres consultar.</p>
+    </section>
+
+    <!-- CONTADOR -->
+    <div class="favorites-count" *ngIf="favorites.length">
+      <ion-icon name="heart"></ion-icon>
+      <span>{{ favorites.length }} ciudades guardadas</span>
+    </div>
+
+    <!-- LISTA DE FAVORITOS -->
+    <section class="favorites-list" *ngIf="favorites.length">
+
+      <article
+        class="favorite-card"
+        *ngFor="let favorite of favorites"
+        (click)="viewWeather(favorite)"
+        (keydown.enter)="viewWeather(favorite)"
+        tabindex="0"
+        role="button"
+        [attr.aria-label]="'Consultar clima de ' + favorite.city">
+
+        <div class="favorite-icon">
+          <ion-icon name="location-outline"></ion-icon>
+        </div>
+
+        <div class="favorite-info">
+          <h2>{{ favorite.city }}</h2>
+          <p>{{ favorite.country || 'País no indicado' }}</p>
+          <span class="favorite-hint">
+            <ion-icon name="cloud-outline"></ion-icon>
+            Consultar clima
+          </span>
+        </div>
+
+        <!-- BOTÓN ELIMINAR -->
+        <ion-button
+          class="delete-button"
+          (click)="$event.stopPropagation(); remove(favorite)"
+          aria-label="Eliminar favorito">
+
+          <ion-icon name="trash-outline" slot="start"></ion-icon>
+          Eliminar
+
+        </ion-button>
+
+      </article>
+
+    </section>
+
+    <!-- ERROR -->
+    <div class="error-message" *ngIf="error">
+      <ion-icon name="alert-circle-outline"></ion-icon>
+      <p>{{ error }}</p>
+    </div>
+
+    <!-- ESTADO VACÍO -->
+    <section
+      class="empty-state"
+      *ngIf="!loading && !favorites.length && !error">
+
+      <div class="empty-icon">
+        <ion-icon name="heart-outline"></ion-icon>
+      </div>
+
+      <h2>Aún no tienes favoritos</h2>
+
+      <p>
+        Guarda tus ciudades favoritas para tenerlas disponibles
+        cuando quieras consultar su clima.
+      </p>
+
+      <ion-button
+        routerLink="/tabs/clima"
+        class="explore-button">
+
+        <ion-icon name="search-outline" slot="start"></ion-icon>
+        Buscar una ciudad
+
+      </ion-button>
+
+    </section>
+
+    <!-- CARGANDO -->
+    <section class="loading-state" *ngIf="loading">
+      <ion-spinner name="crescent"></ion-spinner>
+      <p>Cargando tus ciudades favoritas...</p>
+    </section>
+
+    <!-- PIE -->
+    <footer class="favorites-footer">
+      ClimaGo · Información del clima en un solo lugar
+    </footer>
+
+  </div>
+
 </ion-content>

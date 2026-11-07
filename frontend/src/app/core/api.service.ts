@@ -18,8 +18,13 @@ export class ApiService {
   }
 
   addFavorite(favorite: Omit<Favorite, 'id'>): Observable<Favorite> {
-    return this.http.post<Favorite>(`${environment.apiUrl}/favorites`, favorite);
-  }
+  return this.http.post<{ message: string; favorite: Favorite }>(
+    `${environment.apiUrl}/favorites`,
+    favorite
+  ).pipe(
+    map(response => response.favorite)
+  );
+}
 
   deleteFavorite(id: number): Observable<unknown> {
     return this.http.delete(`${environment.apiUrl}/favorites/${id}`);

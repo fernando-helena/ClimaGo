@@ -1,12 +1,103 @@
-<ion-header><ion-toolbar color="primary"><ion-title>Historial</ion-title><ion-buttons slot="end"><ion-button (click)="load()"><ion-icon name="refresh-outline"></ion-icon></ion-button></ion-buttons></ion-toolbar></ion-header>
-<ion-content>
-  <ion-list *ngIf="history.length">
-    <ion-item *ngFor="let item of history">
-      <ion-icon name="time-outline" slot="start"></ion-icon>
-      <ion-label><h2>{{ item.city }}, {{ item.country }}</h2><p>{{ item.searched_at | date:'medium' }}</p></ion-label>
-    </ion-item>
-  </ion-list>
-  <ion-text class="ion-padding" color="danger" *ngIf="error"><p>{{ error }}</p></ion-text>
-  <div class="empty ion-padding" *ngIf="!loading && !history.length && !error"><ion-icon name="time-outline"></ion-icon><p>Tus búsquedas aparecerán aquí.</p></div>
-  <div class="empty ion-padding" *ngIf="loading"><ion-spinner></ion-spinner><p>Cargando historial...</p></div>
+<ion-content [fullscreen]="true">
+
+  <div class="history-container">
+
+    <header class="history-header">
+      <div>
+        <span class="section-label">TUS ACTIVIDADES</span>
+        <h1>Historial de búsquedas</h1>
+        <p>Consulta las ciudades cuyo clima has revisado.</p>
+      </div>
+
+      <ion-button
+        class="refresh-button"
+        fill="clear"
+        (click)="load()"
+        [disabled]="loading"
+        aria-label="Actualizar historial">
+        <ion-icon name="refresh-outline"></ion-icon>
+      </ion-button>
+    </header>
+
+    <section class="history-summary" *ngIf="history.length">
+      <div class="summary-icon">
+        <ion-icon name="time-outline"></ion-icon>
+      </div>
+      <div>
+        <span>Total de búsquedas</span>
+        <h2>{{ history.length }}</h2>
+      </div>
+    </section>
+
+    <div class="error-message" *ngIf="error">
+      <ion-icon name="alert-circle-outline"></ion-icon>
+      <p>{{ error }}</p>
+    </div>
+
+    <div class="history-state" *ngIf="loading">
+      <ion-spinner name="crescent"></ion-spinner>
+      <p>Cargando tu historial...</p>
+    </div>
+
+    <section class="history-list" *ngIf="!loading && history.length">
+
+      <div class="history-section-title">
+        <h2>Actividad reciente</h2>
+        <span>{{ history.length }} registros</span>
+      </div>
+
+      <article
+        class="history-card"
+        *ngFor="let item of history"
+        (click)="viewWeather(item)"
+        (keydown.enter)="viewWeather(item)"
+        tabindex="0"
+        role="button"
+        [attr.aria-label]="'Consultar nuevamente el clima de ' + item.city">
+
+        <div class="history-icon">
+          <ion-icon name="location-outline"></ion-icon>
+        </div>
+
+        <div class="history-info">
+          <h3>{{ item.city }}</h3>
+          <p>{{ item.country }}</p>
+
+          <span class="history-date">
+            <ion-icon name="calendar-outline"></ion-icon>
+            {{ item.searched_at | date:'dd/MM/yyyy' }}
+          </span>
+        </div>
+
+        <div class="history-action">
+          <span>{{ item.searched_at | date:'shortTime' }}</span>
+          <ion-icon name="chevron-forward-outline"></ion-icon>
+        </div>
+
+      </article>
+
+    </section>
+
+    <div
+      class="empty-state"
+      *ngIf="!loading && !history.length && !error">
+
+      <div class="empty-icon">
+        <ion-icon name="time-outline"></ion-icon>
+      </div>
+
+      <h2>Aún no tienes búsquedas</h2>
+      <p>
+        Cuando consultes el clima de una ciudad,
+        aparecerá aquí tu historial.
+      </p>
+    </div>
+
+    <footer class="history-footer">
+      <p>ClimaGo · Información del clima en un solo lugar</p>
+    </footer>
+
+  </div>
+
 </ion-content>
+

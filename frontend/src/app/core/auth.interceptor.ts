@@ -18,10 +18,10 @@ export class AuthInterceptor implements HttpInterceptor {
     const protectedRequest = !request.url.endsWith('/login') && !request.url.endsWith('/register');
     return next.handle(request.clone({ headers })).pipe(
       catchError((error: HttpErrorResponse) => {
-        if (protectedRequest && error.status === 401) {
-          this.auth.logout();
-          void this.router.navigateByUrl('/login', { replaceUrl: true });
-        }
+       if (protectedRequest && error.status === 401) {
+  this.auth.clearLocalSession();
+  void this.router.navigateByUrl('/login', { replaceUrl: true });
+}
         return throwError(() => error);
       })
     );

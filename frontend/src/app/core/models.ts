@@ -9,6 +9,18 @@ export interface AuthResponse {
   user: User;
 }
 
+export interface WeatherHour {
+  time?: string;
+  temp_c?: number;
+  chance_of_rain?: number;
+  humidity?: number;
+  wind_kph?: number;
+  condition?: {
+    text?: string;
+    icon?: string;
+  };
+}
+
 export interface WeatherResponse {
   location?: {
     name?: string;
@@ -17,12 +29,23 @@ export interface WeatherResponse {
     lat?: number;
     lon?: number;
   };
+
   current?: {
     temp_c?: number;
     feelslike_c?: number;
     humidity?: number;
     wind_kph?: number;
-    condition?: { text?: string; icon?: string };
+    condition?: {
+      text?: string;
+      icon?: string;
+    };
+  };
+
+  forecast?: {
+    forecastday?: {
+      date?: string;
+      hour?: WeatherHour[];
+    }[];
   };
 }
 

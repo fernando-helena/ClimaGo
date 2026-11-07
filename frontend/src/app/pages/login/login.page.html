@@ -1,21 +1,107 @@
-<ion-header>
-  <ion-toolbar color="primary"><ion-title>ClimaGo</ion-title></ion-toolbar>
-</ion-header>
+<ion-content [fullscreen]="true" class="login-content">
 
-<ion-content class="ion-padding">
-  <div class="auth-intro">
-    <ion-icon name="partly-sunny-outline"></ion-icon>
-    <h1>Bienvenido</h1>
-    <p>Inicia sesión para consultar el clima y guardar tus ciudades.</p>
+  <div class="login-layout">
+
+    <!-- Panel de presentación -->
+    <section class="brand-panel">
+      <div class="brand-logo">
+        <ion-icon name="partly-sunny"></ion-icon>
+        <span>ClimaGo</span>
+      </div>
+
+      <div class="brand-message">
+        <span class="eyebrow">EL CLIMA A TU ALCANCE</span>
+        <h1>Tu mundo,<br>tu clima.</h1>
+        <p>
+          Mantente informado sobre el clima de tus ciudades
+          favoritas en cualquier momento.
+        </p>
+      </div>
+
+      <div class="brand-decoration">
+        <ion-icon name="cloudy-outline"></ion-icon>
+        <ion-icon name="sunny-outline"></ion-icon>
+        <ion-icon name="rainy-outline"></ion-icon>
+      </div>
+
+      <span class="brand-footer">ClimaGo · Tu compañero del clima</span>
+    </section>
+
+    <!-- Formulario -->
+    <section class="form-panel">
+
+      <div class="mobile-logo">
+        <ion-icon name="partly-sunny"></ion-icon>
+        <span>ClimaGo</span>
+      </div>
+
+      <div class="form-container">
+        <div class="form-heading">
+          <span class="eyebrow">BIENVENIDO DE NUEVO</span>
+          <h2>Inicia sesión</h2>
+          <p>Ingresa tus datos para continuar.</p>
+        </div>
+
+        <form (ngSubmit)="submit()">
+
+          <div class="field-group">
+            <label for="email">Correo electrónico</label>
+            <div class="input-wrapper">
+              <ion-icon name="mail-outline"></ion-icon>
+              <ion-input
+                id="email"
+                type="email"
+                [(ngModel)]="email"
+                name="email"
+                autocomplete="email"
+                placeholder="tu@correo.com"
+                required>
+              </ion-input>
+            </div>
+          </div>
+
+          <div class="field-group">
+            <label for="password">Contraseña</label>
+            <div class="input-wrapper">
+              <ion-icon name="lock-closed-outline"></ion-icon>
+              <ion-input
+                id="password"
+                type="password"
+                [(ngModel)]="password"
+                name="password"
+                autocomplete="current-password"
+                placeholder="Ingresa tu contraseña"
+                required>
+              </ion-input>
+            </div>
+          </div>
+
+          <ion-text color="danger" *ngIf="error">
+            <p class="error-message">{{ error }}</p>
+          </ion-text>
+
+          <ion-button
+            expand="block"
+            type="submit"
+            class="login-button"
+            [disabled]="loading">
+            {{ loading ? 'Ingresando...' : 'Iniciar sesión' }}
+            <ion-icon name="arrow-forward-outline" slot="end"></ion-icon>
+          </ion-button>
+
+          <div class="register-link">
+            <span>¿Todavía no tienes una cuenta?</span>
+            <a routerLink="/registro">Crear una cuenta</a>
+          </div>
+
+        </form>
+      </div>
+
+      <span class="form-footer">ClimaGo · Información del clima en un solo lugar</span>
+
+    </section>
+
   </div>
 
-  <form (ngSubmit)="submit()">
-    <ion-list lines="full">
-      <ion-item><ion-input label="Correo electrónico" labelPlacement="stacked" type="email" [(ngModel)]="email" name="email" autocomplete="email" required></ion-input></ion-item>
-      <ion-item><ion-input label="Contraseña" labelPlacement="stacked" type="password" [(ngModel)]="password" name="password" autocomplete="current-password" required></ion-input></ion-item>
-    </ion-list>
-    <ion-text color="danger" *ngIf="error"><p>{{ error }}</p></ion-text>
-    <ion-button expand="block" type="submit" [disabled]="loading">{{ loading ? 'Ingresando...' : 'Iniciar sesión' }}</ion-button>
-    <ion-button expand="block" fill="clear" routerLink="/registro">Crear una cuenta</ion-button>
-  </form>
 </ion-content>
+
