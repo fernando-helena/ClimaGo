@@ -1,0 +1,88 @@
+<ion-content [fullscreen]="true">
+
+  <div class="account-container">
+
+    <!-- Encabezado -->
+    <header class="account-header">
+      <span class="section-label">CONFIGURACIÓN</span>
+      <h1>Mi cuenta</h1>
+      <p>Administra tu información y tu sesión.</p>
+    </header>
+
+    <!-- Tarjeta de usuario -->
+    <section class="account-card">
+
+      <div class="account-avatar">
+        <ion-icon name="person-outline"></ion-icon>
+      </div>
+
+      <div class="account-info">
+        <span class="account-label">CUENTA PERSONAL</span>
+        <h2>{{ user?.name || 'Usuario' }}</h2>
+        <p>{{ user?.email || 'Cargando datos...' }}</p>
+      </div>
+
+      <div class="verified-icon">
+        <ion-icon name="checkmark-circle"></ion-icon>
+      </div>
+
+    </section>
+
+    <!-- Información -->
+    <section class="account-details">
+      <h2>Información de la cuenta</h2>
+
+      <div class="detail-item">
+        <div class="detail-icon">
+          <ion-icon name="person-outline"></ion-icon>
+        </div>
+
+        <div>
+          <span>Nombre completo</span>
+          <p>{{ user?.name || 'Cargando...' }}</p>
+        </div>
+      </div>
+
+      <div class="detail-item">
+        <div class="detail-icon">
+          <ion-icon name="mail-outline"></ion-icon>
+        </div>
+
+        <div>
+          <span>Correo electrónico</span>
+          <p>{{ user?.email || 'Cargando...' }}</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Error -->
+    <div class="error-message" *ngIf="error">
+      <ion-icon name="alert-circle-outline"></ion-icon>
+      <p>{{ error }}</p>
+    </div>
+
+    <!-- Cerrar sesión -->
+    <section class="logout-section">
+      <div>
+        <h3>Cerrar sesión</h3>
+        <p>Finaliza tu sesión de ClimaGo en este dispositivo.</p>
+      </div>
+
+      <ion-button
+        class="logout-button"
+        expand="block"
+        (click)="logout()">
+
+        <ion-icon name="log-out-outline" slot="start"></ion-icon>
+        Cerrar sesión
+
+      </ion-button>
+    </section>
+
+    <footer class="account-footer">
+      <p>ClimaGo · Información del clima en un solo lugar</p>
+    </footer>
+
+  </div>
+
+</ion-content>

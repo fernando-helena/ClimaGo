@@ -1,0 +1,495 @@
+.weather-content {
+  --background: #f7f9f7;
+}
+
+.dashboard-container {
+  width: 100%;
+  max-width: 1150px;
+  margin: 0 auto;
+  padding: 28px 40px;
+}
+
+/* ENCABEZADO */
+.dashboard-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 24px;
+  border-bottom: 1px solid #e5ebe5;
+}
+
+.dashboard-brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: #174b3a;
+  font-size: 25px;
+  font-weight: 700;
+}
+
+.dashboard-brand ion-icon {
+  color: #438b3d;
+  font-size: 32px;
+}
+
+.header-label {
+  color: #7b857e;
+  font-size: 13px;
+}
+
+/* BIENVENIDA */
+.welcome-section {
+  margin-top: 42px;
+}
+
+.section-eyebrow,
+.weather-label {
+  color: #438b3d;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 2px;
+}
+
+.welcome-section h1 {
+  margin: 12px 0;
+  color: #202923;
+  font-size: clamp(26px, 4vw, 36px);
+  font-weight: 700;
+}
+
+.welcome-section p {
+  color: #7b857e;
+  font-size: 15px;
+  line-height: 1.6;
+}
+
+/* BUSCADOR */
+.search-section {
+  margin-top: 30px;
+}
+
+.search-box {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-height: 62px;
+  padding: 6px 8px 6px 18px;
+  border: 1px solid #e1e8e2;
+  border-radius: 14px;
+  background: #ffffff;
+}
+
+.search-box > ion-icon {
+  color: #438b3d;
+  font-size: 22px;
+}
+
+.search-box ion-input {
+  --background: #ffffff;
+  --color: #000000;
+  --placeholder-color: #929b94;
+  --placeholder-opacity: 1;
+  --padding-start: 0;
+  --padding-end: 0;
+
+  color: #000000;
+  font-size: 14px;
+}
+
+.search-box ion-button {
+  --background: #18181b;
+  --background-hover: #303036;
+  --color: #ffffff;
+  --border-radius: 10px;
+  --box-shadow: none;
+
+  height: 46px;
+  margin: 0;
+  font-weight: 600;
+  text-transform: none;
+}
+
+.feedback-message {
+  margin-top: 16px;
+  font-size: 14px;
+}
+
+/* TARJETA DEL CLIMA */
+.weather-result {
+  margin-top: 32px;
+}
+
+.weather-card {
+  padding: 28px;
+  border: 1px solid #e6ece6;
+  border-radius: 20px;
+  background: #ffffff;
+  box-shadow: 0 5px 20px rgba(30, 60, 40, 0.04);
+}
+
+.weather-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.weather-card-header h2 {
+  margin: 10px 0 4px;
+  color: #202923;
+  font-size: 25px;
+  font-weight: 700;
+}
+
+.weather-card-header p {
+  margin: 0;
+  color: #7b857e;
+  font-size: 14px;
+}
+
+.location-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  background: #edf5eb;
+  color: #438b3d;
+}
+
+.location-icon ion-icon {
+  font-size: 22px;
+}
+
+/* TEMPERATURA */
+.weather-main {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 30px 0;
+  padding: 20px 0;
+  border-top: 1px solid #edf0ed;
+  border-bottom: 1px solid #edf0ed;
+}
+
+.temperature {
+  display: flex;
+  align-items: flex-start;
+  color: #174b3a;
+}
+
+.temperature strong {
+  font-size: clamp(65px, 10vw, 90px);
+  line-height: 1;
+  font-weight: 700;
+}
+
+.temperature span {
+  margin-top: 8px;
+  font-size: 27px;
+}
+
+.weather-condition {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.weather-condition img {
+  width: 80px;
+  height: 80px;
+}
+
+.weather-condition p {
+  margin: 0;
+  color: #303a33;
+  font-size: 14px;
+  font-weight: 600;
+  text-align: center;
+}
+
+.weather-date {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 22px;
+  color: #7b857e;
+  font-size: 13px;
+}
+
+.weather-date ion-icon {
+  color: #438b3d;
+  font-size: 18px;
+}
+
+/* DETALLES METEOROLÓGICOS */
+.weather-details {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px;
+}
+
+.detail-card {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 18px 14px;
+  border: 1px solid #e8eee8;
+  border-radius: 14px;
+  background: #f8faf8;
+}
+
+.detail-card ion-icon {
+  color: #438b3d;
+  font-size: 23px;
+}
+
+.detail-card span {
+  color: #7b857e;
+  font-size: 12px;
+}
+
+.detail-card strong {
+  color: #202923;
+  font-size: 17px;
+}
+
+/* FAVORITOS */
+.favorite-button {
+  --background: #18181b;
+  --background-hover: #303036;
+  --color: #ffffff;
+  --border-radius: 12px;
+  --box-shadow: none;
+
+  height: 50px;
+  margin-top: 24px;
+  font-weight: 600;
+  text-transform: none;
+}
+
+/* ESTADO VACÍO */
+.empty-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 75px auto 40px;
+  max-width: 420px;
+  text-align: center;
+}
+
+.empty-icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 90px;
+  height: 90px;
+  border-radius: 25px;
+  background: #eaf3e8;
+  color: #438b3d;
+}
+
+.empty-icon ion-icon {
+  font-size: 48px;
+}
+
+.empty-state h3 {
+  margin: 22px 0 8px;
+  color: #202923;
+  font-size: 21px;
+  font-weight: 700;
+}
+
+.empty-state p {
+  color: #7b857e;
+  font-size: 14px;
+  line-height: 1.7;
+}
+
+/* CARGANDO */
+.loading-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  margin-top: 45px;
+  color: #7b857e;
+}
+
+.loading-state ion-spinner {
+  color: #438b3d;
+}
+
+.loading-state p {
+  font-size: 14px;
+}
+
+/* PIE DE PÁGINA */
+.dashboard-footer {
+  margin-top: 65px;
+  padding: 20px 0;
+  border-top: 1px solid #e5ebe5;
+  color: #929b94;
+  font-size: 12px;
+  text-align: center;
+}
+
+/* TABLETS */
+@media (max-width: 768px) {
+  .dashboard-container {
+    padding: 22px 20px;
+  }
+
+  .welcome-section {
+    margin-top: 32px;
+  }
+
+  .weather-card {
+    padding: 22px;
+  }
+}
+
+/* CELULARES */
+@media (max-width: 480px) {
+  .dashboard-container {
+    padding: 18px 15px;
+  }
+
+  .dashboard-header {
+    padding-bottom: 18px;
+  }
+
+  .dashboard-brand {
+    font-size: 22px;
+  }
+
+  .header-label {
+    font-size: 11px;
+  }
+
+  .search-box {
+    flex-wrap: wrap;
+    padding: 10px;
+  }
+
+  .search-box ion-input {
+    min-width: 0;
+    flex: 1;
+  }
+
+  .search-box ion-button {
+    width: 100%;
+    margin-top: 5px;
+  }
+
+  .weather-card {
+    padding: 18px;
+  }
+
+  .weather-details {
+    grid-template-columns: 1fr;
+  }
+
+  .detail-card {
+    display: grid;
+    grid-template-columns: 30px 1fr auto;
+    align-items: center;
+  }
+
+  .detail-card strong {
+    text-align: right;
+  }
+
+  .weather-main {
+    gap: 10px;
+  }
+
+  .temperature strong {
+    font-size: 65px;
+  }
+
+  .weather-condition img {
+    width: 65px;
+    height: 65px;
+  }
+}
+
+/* GRÁFICA DEL PRONÓSTICO */
+.forecast-card {
+  margin-top: 25px;
+  padding: 28px;
+  border: 1px solid #e6ece6;
+  border-radius: 20px;
+  background: #ffffff;
+  box-shadow: 0 5px 20px rgba(30, 60, 40, 0.04);
+}
+
+.forecast-heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 15px;
+}
+
+.forecast-heading h2 {
+  margin: 10px 0;
+  color: #202923;
+  font-size: 22px;
+  font-weight: 700;
+}
+
+.forecast-heading p {
+  margin: 0;
+  color: #7b857e;
+  font-size: 13px;
+}
+
+.forecast-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  background: #edf5eb;
+  color: #438b3d;
+}
+
+.forecast-icon ion-icon {
+  font-size: 23px;
+}
+
+.chart-container {
+  position: relative;
+  width: 100%;
+  height: 300px;
+  margin-top: 30px;
+}
+
+.forecast-note {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 18px;
+  color: #7b857e;
+  font-size: 12px;
+}
+
+.forecast-note ion-icon {
+  color: #438b3d;
+  font-size: 18px;
+}
+
+@media (max-width: 480px) {
+  .forecast-card {
+    padding: 18px;
+  }
+
+  .forecast-heading h2 {
+    font-size: 19px;
+  }
+
+  .chart-container {
+    height: 250px;
+  }
+}

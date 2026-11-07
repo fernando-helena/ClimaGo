@@ -1,0 +1,8 @@
+import { NgModule } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { IonicModule } from '@ionic/angular/lazy';
+import { HistoryPageRoutingModule } from './history-routing.module';
+import { HistoryPage } from './history.page';
+
+@NgModule({ imports: [CommonModule, IonicModule, HistoryPageRoutingModule], declarations: [HistoryPage] })
+export class HistoryPageModule {}

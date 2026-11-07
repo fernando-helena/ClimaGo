@@ -1,0 +1,183 @@
+<ion-content [fullscreen]="true" class="weather-content">
+
+  <!-- ENCABEZADO -->
+  <div class="dashboard-container">
+
+    <header class="dashboard-header">
+      <div class="dashboard-brand">
+        <ion-icon name="partly-sunny"></ion-icon>
+        <span>ClimaGo</span>
+      </div>
+
+      <div class="header-label">
+        Tu compañero del clima
+      </div>
+    </header>
+
+    <!-- BIENVENIDA -->
+    <section class="welcome-section">
+      <span class="section-eyebrow">CONSULTA DEL CLIMA</span>
+      <h1>¿Cómo está el clima hoy?</h1>
+      <p>Busca una ciudad y descubre sus condiciones meteorológicas.</p>
+    </section>
+
+    <!-- BUSCADOR -->
+    <section class="search-section">
+      <form (ngSubmit)="search()">
+        <div class="search-box">
+          <ion-icon name="search-outline"></ion-icon>
+
+          <ion-input
+            [(ngModel)]="city"
+            name="city"
+            placeholder="Ej. San Salvador, El Salvador"
+            type="text">
+          </ion-input>
+
+          <ion-button
+            type="submit"
+            [disabled]="loading">
+            {{ loading ? 'Consultando...' : 'Buscar' }}
+          </ion-button>
+        </div>
+      </form>
+    </section>
+
+    <!-- MENSAJES -->
+    <ion-text color="danger" *ngIf="error">
+      <p class="feedback-message">{{ error }}</p>
+    </ion-text>
+
+    <ion-text color="success" *ngIf="message">
+      <p class="feedback-message">{{ message }}</p>
+    </ion-text>
+
+    <!-- RESULTADO DEL CLIMA -->
+    <ng-container *ngIf="weather?.location as location">
+
+      <section class="weather-result" *ngIf="weather.current as current">
+
+        <div class="weather-card">
+
+          <div class="weather-card-header">
+            <div>
+              <span class="weather-label">CLIMA ACTUAL</span>
+              <h2>{{ location.name }}</h2>
+              <p>{{ location.country }}</p>
+            </div>
+
+            <div class="location-icon">
+              <ion-icon name="location-outline"></ion-icon>
+            </div>
+          </div>
+
+          <div class="weather-main">
+            <div class="temperature">
+              <strong>{{ current.temp_c }}</strong>
+              <span>°C</span>
+            </div>
+
+            <div class="weather-condition">
+              <img
+                *ngIf="current.condition as condition"
+                [src]="'https:' + condition.icon"
+                [alt]="condition.text || 'Estado del clima'">
+
+              <p *ngIf="current.condition as condition">
+                {{ condition.text }}
+              </p>
+            </div>
+          </div>
+
+          <div class="weather-date">
+            <ion-icon name="time-outline"></ion-icon>
+            {{ location.localtime }}
+          </div>
+
+          <div class="weather-details">
+
+            <div class="detail-card">
+              <ion-icon name="thermometer-outline"></ion-icon>
+              <span>Sensación térmica</span>
+              <strong>{{ current.feelslike_c }} °C</strong>
+            </div>
+
+            <div class="detail-card">
+              <ion-icon name="water-outline"></ion-icon>
+              <span>Humedad</span>
+              <strong>{{ current.humidity }} %</strong>
+            </div>
+
+            <div class="detail-card">
+              <ion-icon name="navigate-outline"></ion-icon>
+              <span>Viento</span>
+              <strong>{{ current.wind_kph }} km/h</strong>
+            </div>
+
+          </div>
+
+          <ion-button
+            expand="block"
+            class="favorite-button"
+            (click)="addFavorite()"
+            [disabled]="savingFavorite">
+
+            <ion-icon name="heart-outline" slot="start"></ion-icon>
+
+            {{ savingFavorite ? 'Guardando...' : 'Agregar a favoritos' }}
+          </ion-button>
+
+        </div>
+
+
+<!-- GRÁFICA DEL PRONÓSTICO POR HORAS -->
+<div class="forecast-card">
+  <div class="forecast-heading">
+    <div>
+      <span class="weather-label">PRONÓSTICO</span>
+      <h2>Temperatura durante el día</h2>
+      <p>Consulta cómo cambiará la temperatura por hora.</p>
+    </div>
+
+    <div class="forecast-icon">
+      <ion-icon name="analytics-outline"></ion-icon>
+    </div>
+  </div>
+
+  <div class="chart-container">
+    <canvas #temperatureChart></canvas>
+  </div>
+
+  <div class="forecast-note">
+    <ion-icon name="information-circle-outline"></ion-icon>
+    <span>Temperaturas expresadas en grados Celsius (°C).</span>
+  </div>
+</div>
+
+
+      </section>
+
+    </ng-container>
+
+    <!-- ESTADO INICIAL -->
+    <section class="empty-state" *ngIf="!weather && !loading">
+      <div class="empty-icon">
+        <ion-icon name="cloud-outline"></ion-icon>
+      </div>
+
+      <h3>Explora el clima</h3>
+      <p>Busca una ciudad para conocer su temperatura, humedad y velocidad del viento.</p>
+    </section>
+
+    <!-- CARGANDO -->
+    <section class="loading-state" *ngIf="loading">
+      <ion-spinner name="crescent"></ion-spinner>
+      <p>Consultando las condiciones del clima...</p>
+    </section>
+
+    <footer class="dashboard-footer">
+      ClimaGo · Información del clima en un solo lugar
+    </footer>
+
+  </div>
+</ion-content>

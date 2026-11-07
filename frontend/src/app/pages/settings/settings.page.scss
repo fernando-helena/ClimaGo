@@ -1,0 +1,235 @@
+:host {
+  display: block;
+}
+
+ion-content {
+  --background: #f7f9f7;
+}
+
+.account-container {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 28px 20px;
+}
+
+/* Encabezado */
+.account-header {
+  margin-bottom: 28px;
+
+  h1 {
+    margin: 8px 0;
+    color: #18181b;
+    font-size: 26px;
+    font-weight: 750;
+  }
+
+  p {
+    margin: 0;
+    color: #7b857e;
+    font-size: 14px;
+  }
+}
+
+.section-label {
+  color: #438b3d;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+}
+
+/* Tarjeta de usuario */
+.account-card {
+  display: flex;
+  align-items: center;
+  gap: 17px;
+  padding: 25px;
+  margin-bottom: 30px;
+  background: #ffffff;
+  border: 1px solid #edf0ed;
+  border-radius: 20px;
+}
+
+.account-avatar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 65px;
+  height: 65px;
+  background: #eaf3e7;
+  color: #438b3d;
+  border-radius: 19px;
+
+  ion-icon {
+    font-size: 32px;
+  }
+}
+
+.account-info {
+  flex: 1;
+  min-width: 0;
+
+  h2 {
+    margin: 6px 0;
+    color: #18181b;
+    font-size: 18px;
+    font-weight: 700;
+  }
+
+  p {
+    margin: 0;
+    color: #7b857e;
+    font-size: 13px;
+    overflow-wrap: anywhere;
+  }
+}
+
+.account-label {
+  color: #438b3d;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+.verified-icon {
+  color: #438b3d;
+
+  ion-icon {
+    font-size: 23px;
+  }
+}
+
+/* Detalles */
+.account-details {
+  padding: 22px;
+  margin-bottom: 25px;
+  background: #ffffff;
+  border: 1px solid #edf0ed;
+  border-radius: 20px;
+
+  > h2 {
+    margin: 0 0 20px;
+    color: #18181b;
+    font-size: 17px;
+    font-weight: 700;
+  }
+}
+
+.detail-item {
+  display: flex;
+  align-items: center;
+  gap: 13px;
+  padding: 15px 0;
+  border-bottom: 1px solid #edf0ed;
+
+  &:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+  }
+
+  span {
+    color: #7b857e;
+    font-size: 12px;
+  }
+
+  p {
+    margin: 5px 0 0;
+    color: #18181b;
+    font-size: 14px;
+    font-weight: 600;
+    overflow-wrap: anywhere;
+  }
+}
+
+.detail-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 42px;
+  height: 42px;
+  flex-shrink: 0;
+  background: #f1f5f0;
+  color: #438b3d;
+  border-radius: 12px;
+
+  ion-icon {
+    font-size: 20px;
+  }
+}
+
+/* Cerrar sesión */
+.logout-section {
+  padding: 22px;
+  background: #ffffff;
+  border: 1px solid #edf0ed;
+  border-radius: 20px;
+
+  h3 {
+    margin: 0 0 7px;
+    color: #18181b;
+    font-size: 16px;
+    font-weight: 700;
+  }
+
+  p {
+    margin: 0 0 18px;
+    color: #7b857e;
+    font-size: 13px;
+    line-height: 1.5;
+  }
+}
+
+.logout-button {
+  --background: #18181b;
+  --background-hover: #303036;
+  --color: #ffffff;
+  --border-radius: 12px;
+  font-weight: 600;
+  height: 46px;
+}
+
+.error-message {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 14px;
+  margin-bottom: 20px;
+  background: #fff0f0;
+  border-radius: 12px;
+  color: #c62828;
+
+  p {
+    margin: 0;
+    font-size: 13px;
+  }
+}
+
+/* Pie de página */
+.account-footer {
+  margin-top: 40px;
+  padding: 18px 0;
+  border-top: 1px solid #e8ece8;
+  text-align: center;
+
+  p {
+    margin: 0;
+    color: #9aa39c;
+    font-size: 11px;
+  }
+}
+
+@media (max-width: 480px) {
+  .account-container {
+    padding: 22px 15px;
+  }
+
+  .account-card {
+    padding: 18px;
+    gap: 12px;
+  }
+
+  .account-avatar {
+    width: 52px;
+    height: 52px;
+  }
+}

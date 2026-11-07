@@ -1,0 +1,323 @@
+:host {
+  display: block;
+}
+
+ion-content {
+  --background: #f7f9f7;
+}
+
+.history-container {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 28px 20px 24px;
+}
+
+/* Encabezado */
+.history-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 15px;
+  margin-bottom: 25px;
+
+  h1 {
+    margin: 8px 0;
+    color: #18181b;
+    font-size: 26px;
+    font-weight: 750;
+  }
+
+  p {
+    margin: 0;
+    color: #7b857e;
+    font-size: 14px;
+    line-height: 1.5;
+  }
+}
+
+.section-label {
+  color: #438b3d;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+}
+
+.refresh-button {
+  --color: #438b3d;
+  --background: #eaf3e7;
+  --border-radius: 12px;
+  width: 44px;
+  height: 44px;
+
+  ion-icon {
+    font-size: 21px;
+  }
+}
+
+/* Resumen */
+.history-summary {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  padding: 18px;
+  margin-bottom: 30px;
+  background: #ffffff;
+  border: 1px solid #edf0ed;
+  border-radius: 18px;
+
+  span {
+    color: #7b857e;
+    font-size: 13px;
+  }
+
+  h2 {
+    margin: 5px 0 0;
+    color: #18181b;
+    font-size: 25px;
+    font-weight: 750;
+  }
+}
+
+.summary-icon,
+.history-icon,
+.empty-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  background: #eaf3e7;
+  color: #438b3d;
+  border-radius: 14px;
+}
+
+.summary-icon {
+  width: 50px;
+  height: 50px;
+
+  ion-icon {
+    font-size: 25px;
+  }
+}
+
+/* Título de sección */
+.history-section-title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 15px;
+
+  h2 {
+    margin: 0;
+    color: #18181b;
+    font-size: 17px;
+    font-weight: 700;
+  }
+
+  span {
+    color: #7b857e;
+    font-size: 12px;
+  }
+}
+
+/* Tarjetas */
+.history-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.history-card {
+  display: flex;
+  align-items: center;
+  gap: 13px;
+  padding: 16px;
+  background: #ffffff;
+  border: 1px solid #edf0ed;
+  border-radius: 17px;
+}
+
+.history-icon {
+  width: 45px;
+  height: 45px;
+
+  ion-icon {
+    font-size: 22px;
+  }
+}
+
+.history-info {
+  flex: 1;
+  min-width: 0;
+
+  h3 {
+    margin: 0 0 4px;
+    color: #18181b;
+    font-size: 15px;
+    font-weight: 700;
+  }
+
+  p {
+    margin: 0 0 8px;
+    color: #7b857e;
+    font-size: 12px;
+  }
+}
+
+.history-date {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  color: #438b3d;
+  font-size: 11px;
+
+  ion-icon {
+    font-size: 14px;
+  }
+}
+
+.history-time {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  color: #7b857e;
+  font-size: 12px;
+  white-space: nowrap;
+
+  ion-icon {
+    font-size: 15px;
+  }
+}
+
+/* Estados */
+.history-state,
+.empty-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 55px 25px;
+}
+
+.history-state {
+  color: #7b857e;
+
+  ion-spinner {
+    color: #438b3d;
+    width: 35px;
+    height: 35px;
+  }
+}
+
+.empty-icon {
+  width: 75px;
+  height: 75px;
+  margin-bottom: 18px;
+  border-radius: 22px;
+
+  ion-icon {
+    font-size: 36px;
+  }
+}
+
+.empty-state {
+  h2 {
+    margin: 0 0 10px;
+    color: #18181b;
+    font-size: 19px;
+    font-weight: 700;
+  }
+
+  p {
+    max-width: 300px;
+    margin: 0;
+    color: #7b857e;
+    font-size: 13px;
+    line-height: 1.6;
+  }
+}
+
+.error-message {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 14px;
+  background: #fff0f0;
+  border-radius: 12px;
+  color: #c62828;
+
+  ion-icon {
+    font-size: 21px;
+    flex-shrink: 0;
+  }
+
+  p {
+    margin: 0;
+    font-size: 13px;
+  }
+}
+
+/* Pie de página */
+.history-footer {
+  margin-top: 40px;
+  padding: 18px 0;
+  border-top: 1px solid #e8ece8;
+  text-align: center;
+
+  p {
+    margin: 0;
+    color: #9aa39c;
+    font-size: 11px;
+  }
+}
+
+/* Pantallas pequeñas */
+@media (max-width: 480px) {
+  .history-container {
+    padding: 22px 15px;
+  }
+
+  .history-header h1 {
+    font-size: 23px;
+  }
+
+  .history-card {
+    padding: 13px;
+    gap: 10px;
+  }
+
+  .history-time {
+    font-size: 11px;
+  }
+}
+
+
+.history-card {
+  cursor: pointer;
+  transition: transform 0.2s ease, border-color 0.2s ease;
+
+  &:hover {
+    border-color: #68b937;
+    transform: translateY(-2px);
+  }
+
+  &:focus-visible {
+    outline: 2px solid #68b937;
+    outline-offset: 3px;
+  }
+}
+
+.history-action {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #7b857e;
+  font-size: 12px;
+  white-space: nowrap;
+
+  ion-icon {
+    color: #438b3d;
+    font-size: 19px;
+  }
+}

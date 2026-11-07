@@ -1,0 +1,299 @@
+.favorites-content {
+  --background: #f7f9f7;
+}
+
+.favorites-container {
+  width: 100%;
+  max-width: 1150px;
+  margin: 0 auto;
+  padding: 28px 40px;
+}
+
+/* ENCABEZADO */
+.favorites-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 24px;
+  border-bottom: 1px solid #e5ebe5;
+}
+
+.favorites-brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: #174b3a;
+  font-size: 25px;
+  font-weight: 700;
+}
+
+.favorites-brand ion-icon {
+  color: #438b3d;
+  font-size: 32px;
+}
+
+.refresh-button {
+  --color: #438b3d;
+  --background: #edf5eb;
+  --border-radius: 12px;
+
+  width: 44px;
+  height: 44px;
+  font-size: 21px;
+}
+
+/* PRESENTACIÓN */
+.favorites-intro {
+  margin-top: 42px;
+}
+
+.section-eyebrow {
+  color: #438b3d;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 2px;
+}
+
+.favorites-intro h1 {
+  margin: 12px 0;
+  color: #202923;
+  font-size: clamp(26px, 4vw, 36px);
+  font-weight: 700;
+}
+
+.favorites-intro p {
+  color: #7b857e;
+  font-size: 15px;
+  line-height: 1.6;
+}
+
+/* CONTADOR */
+.favorites-count {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  margin: 32px 0 18px;
+  color: #438b3d;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.favorites-count ion-icon {
+  font-size: 19px;
+}
+
+/* LISTA */
+.favorites-list {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.favorite-card {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  min-width: 0;
+  padding: 20px;
+  border: 1px solid #e6ece6;
+  border-radius: 16px;
+  background: #ffffff;
+  box-shadow: 0 5px 20px rgba(30, 60, 40, 0.04);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.favorite-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 24px rgba(30, 60, 40, 0.08);
+}
+
+.favorite-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 48px;
+  height: 48px;
+  border-radius: 13px;
+  background: #edf5eb;
+  color: #438b3d;
+}
+
+.favorite-icon ion-icon {
+  font-size: 24px;
+}
+
+.favorite-info {
+  flex: 1;
+  min-width: 0;
+}
+
+.favorite-info h2 {
+  margin: 0 0 6px;
+  overflow: hidden;
+  color: #202923;
+  font-size: 17px;
+  font-weight: 700;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.favorite-info p {
+  margin: 0;
+  color: #7b857e;
+  font-size: 13px;
+}
+
+.delete-button {
+  --color: #d64545;
+  --background: #fff2f2;
+  --background-hover: #ffe2e2;
+  --border-radius: 10px;
+  --box-shadow: none;
+
+  height: 40px;
+  margin: 0;
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: none;
+}
+
+.delete-button ion-icon {
+  font-size: 17px;
+}
+
+/* ESTADO VACÍO */
+.empty-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 430px;
+  margin: 75px auto 40px;
+  text-align: center;
+}
+
+.empty-icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 90px;
+  height: 90px;
+  border-radius: 25px;
+  background: #eaf3e8;
+  color: #438b3d;
+}
+
+.empty-icon ion-icon {
+  font-size: 48px;
+}
+
+.empty-state h2 {
+  margin: 22px 0 8px;
+  color: #202923;
+  font-size: 21px;
+  font-weight: 700;
+}
+
+.empty-state p {
+  color: #7b857e;
+  font-size: 14px;
+  line-height: 1.7;
+}
+
+.explore-button {
+  --background: #18181b;
+  --background-hover: #303036;
+  --color: #ffffff;
+  --border-radius: 12px;
+  --box-shadow: none;
+
+  height: 48px;
+  margin-top: 18px;
+  font-weight: 600;
+  text-transform: none;
+}
+
+/* ERROR */
+.error-message {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 25px;
+  padding: 14px;
+  border: 1px solid #f3d4d4;
+  border-radius: 12px;
+  background: #fff5f5;
+  color: #c53c3c;
+}
+
+.error-message ion-icon {
+  font-size: 21px;
+  flex-shrink: 0;
+}
+
+.error-message p {
+  margin: 0;
+  font-size: 14px;
+}
+
+/* CARGANDO */
+.loading-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  margin-top: 60px;
+  color: #7b857e;
+}
+
+.loading-state ion-spinner {
+  color: #438b3d;
+}
+
+.loading-state p {
+  font-size: 14px;
+}
+
+/* PIE DE PÁGINA */
+.favorites-footer {
+  margin-top: 65px;
+  padding: 20px 0;
+  border-top: 1px solid #e5ebe5;
+  color: #929b94;
+  font-size: 12px;
+  text-align: center;
+}
+
+/* TABLETS */
+@media (max-width: 768px) {
+  .favorites-container {
+    padding: 22px 20px;
+  }
+
+  .favorites-intro {
+    margin-top: 32px;
+  }
+
+  .favorites-list {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* CELULARES */
+@media (max-width: 480px) {
+  .favorites-container {
+    padding: 18px 15px;
+  }
+
+  .favorites-brand {
+    font-size: 22px;
+  }
+
+  .favorite-card {
+    padding: 16px;
+  }
+
+  .favorites-intro h1 {
+    font-size: 27px;
+  }
+}

@@ -1,0 +1,325 @@
+
+.login-content {
+  --background: #ffffff;
+}
+
+.login-layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  min-height: 100%;
+}
+
+/* PANEL IZQUIERDO */
+.brand-panel {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  overflow: hidden;
+  padding: 48px;
+  color: #ffffff;
+  background: linear-gradient(145deg, #174b3a, #286b50);
+}
+
+.brand-logo,
+.mobile-logo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 25px;
+  font-weight: 700;
+}
+
+.brand-logo ion-icon,
+.mobile-logo ion-icon {
+  font-size: 34px;
+  color: #a9d8a0;
+}
+
+.brand-message {
+  position: relative;
+  z-index: 1;
+  max-width: 480px;
+}
+
+.eyebrow {
+  display: block;
+  margin-bottom: 16px;
+  color: #78b98b;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 2px;
+}
+
+.brand-message h1 {
+  margin: 0 0 20px;
+  font-size: clamp(42px, 5vw, 64px);
+  line-height: 1.1;
+  font-weight: 700;
+}
+
+.brand-message p {
+  max-width: 390px;
+  color: #d5e7dc;
+  font-size: 16px;
+  line-height: 1.7;
+}
+
+.brand-decoration {
+  position: absolute;
+  right: 35px;
+  bottom: 100px;
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  opacity: 0.15;
+}
+
+.brand-decoration ion-icon {
+  font-size: 75px;
+}
+
+.brand-decoration ion-icon:nth-child(2) {
+  font-size: 110px;
+}
+
+.brand-footer,
+.form-footer {
+  font-size: 12px;
+  opacity: 0.7;
+}
+
+/* PANEL DERECHO */
+.form-panel {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 48px 32px;
+  background: #ffffff;
+}
+
+.form-container {
+  width: 100%;
+  max-width: 420px;
+}
+
+.form-heading {
+  margin-bottom: 36px;
+}
+
+.form-heading h2 {
+  margin: 0 0 10px;
+  color: #202923;
+  font-size: 32px;
+  font-weight: 700;
+}
+
+.form-heading p {
+  margin: 0;
+  color: #7b857e;
+}
+
+/* CAMPOS DEL FORMULARIO */
+.field-group {
+  margin-bottom: 22px;
+}
+
+.field-group label {
+  display: block;
+  margin-bottom: 9px;
+  color: #202923;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.input-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-height: 54px;
+  padding: 0 14px;
+  border: 1px solid #d5ded7;
+  border-radius: 12px;
+  background: #ffffff;
+  box-shadow: none;
+}
+
+.input-wrapper:focus-within {
+  border-color: #68b937;
+  box-shadow: 0 0 0 2px rgba(104, 185, 55, 0.12);
+}
+
+.input-wrapper ion-icon {
+  color: #438b3d;
+  font-size: 20px;
+  flex-shrink: 0;
+}
+
+.input-wrapper ion-input {
+  --background: #ffffff;
+  --color: #000000;
+  --placeholder-color: #777777;
+  --placeholder-opacity: 1;
+  --highlight-color-focused: #68b937;
+  --padding-start: 0;
+  --padding-end: 0;
+
+  color: #000000 !important;
+  background: #ffffff !important;
+  font-size: 15px;
+  opacity: 1;
+  box-shadow: none !important;
+}
+
+/* TEXTO DEL INPUT NATIVO */
+.input-wrapper ion-input::part(native) {
+  color: #000000 !important;
+  background: #ffffff !important;
+  -webkit-text-fill-color: #000000 !important;
+  caret-color: #000000;
+  box-shadow: none !important;
+  opacity: 1;
+}
+
+/* AUTOCOMPLETADO DE CHROME */
+.input-wrapper ion-input::part(native):autofill,
+.input-wrapper ion-input::part(native):-webkit-autofill,
+.input-wrapper ion-input::part(native):-webkit-autofill:hover,
+.input-wrapper ion-input::part(native):-webkit-autofill:focus {
+  -webkit-text-fill-color: #000000 !important;
+  caret-color: #000000;
+  box-shadow: 0 0 0 1000px #ffffff inset !important;
+  transition: background-color 9999s ease-in-out 0s;
+}
+
+/* MENSAJE DE ERROR */
+.error-message {
+  color: #d32f2f;
+  font-size: 13px;
+}
+
+/* BOTÓN DE INICIO DE SESIÓN */
+.login-button {
+  --background: #18181b;
+  --background-hover: #303036;
+  --background-activated: #303036;
+  --color: #ffffff;
+  --border-radius: 12px;
+  --box-shadow: none;
+
+  height: 52px;
+  margin-top: 12px;
+  font-weight: 600;
+  text-transform: none;
+}
+
+/* ENLACE DE REGISTRO */
+.register-link {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 5px;
+  margin-top: 26px;
+  color: #7b857e;
+  font-size: 14px;
+}
+
+.register-link a {
+  color: #438b3d;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.register-link a:hover {
+  color: #286b50;
+  text-decoration: underline;
+}
+
+.form-footer {
+  margin-top: 50px;
+  color: #929b94;
+}
+
+.mobile-logo {
+  display: none;
+}
+
+/* TABLETS Y CELULARES */
+@media (max-width: 768px) {
+  .login-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .brand-panel {
+    display: none;
+  }
+
+  .form-panel {
+    min-height: 100%;
+    padding: 35px 24px;
+  }
+
+  .mobile-logo {
+    display: flex;
+    margin-bottom: 55px;
+    color: #174b3a;
+  }
+
+  .mobile-logo ion-icon {
+    color: #438b3d;
+  }
+
+  .form-heading h2 {
+    font-size: 29px;
+  }
+
+  .form-footer {
+    margin-top: 45px;
+    text-align: center;
+  }
+}
+
+/* CELULARES PEQUEÑOS */
+@media (max-width: 380px) {
+  .form-panel {
+    padding: 28px 18px;
+  }
+
+  .mobile-logo {
+    margin-bottom: 40px;
+  }
+
+  .form-heading h2 {
+    font-size: 26px;
+  }
+
+  .register-link {
+    font-size: 13px;
+  }
+}
+
+/* Evitar fondo azul o gris de Chrome al guardar credenciales */
+.input-wrapper {
+  background: #ffffff !important;
+}
+
+.input-wrapper ion-input {
+  --color: #000000 !important;
+  --background: #ffffff !important;
+}
+
+.input-wrapper ion-input::part(native) {
+  color: #000000 !important;
+  -webkit-text-fill-color: #000000 !important;
+  background-color: #ffffff !important;
+}
+
+/* Cuando Chrome rellena los campos automáticamente */
+.input-wrapper ion-input::part(native):-webkit-autofill,
+.input-wrapper ion-input::part(native):-webkit-autofill:hover,
+.input-wrapper ion-input::part(native):-webkit-autofill:focus {
+  -webkit-text-fill-color: #000000 !important;
+  background-color: #ffffff !important;
+  box-shadow: inset 0 0 0 1000px #ffffff !important;
+}
