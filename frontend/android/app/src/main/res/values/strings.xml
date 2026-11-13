@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">ClimaGo</string>
+    <string name="title_activity_main">ClimaGo</string>
+    <string name="package_name">com.climago.app</string>
+    <string name="custom_url_scheme">com.climago.app</string>
+</resources>
