@@ -14,10 +14,13 @@ class WeatherController extends Controller
             'city' => 'required|string|max:100',
         ]);
 
-        $response = Http::get('https://api.weatherapi.com/v1/current.json', [
+        $response = Http::get('https://api.weatherapi.com/v1/forecast.json', [
             'key' => config('services.weatherapi.key'),
             'q' => $request->city,
+            'days' => 1,
             'lang' => 'es',
+            'aqi' => 'no',
+            'alerts' => 'no',
         ]);
 
         if ($response->failed()) {

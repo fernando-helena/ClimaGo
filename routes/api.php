@@ -9,6 +9,10 @@ use App\Http\Controllers\WeatherSearchController;
 
 Route::post('/register', [AuthController::class, 'register']);
 Route::post('/login', [AuthController::class, 'login']);
+
+Route::post('/logout', [AuthController::class, 'logout'])
+    ->middleware('auth:sanctum');
+
 Route::get('/weather', [WeatherController::class, 'show'])
 ->middleware('auth:sanctum');
 
